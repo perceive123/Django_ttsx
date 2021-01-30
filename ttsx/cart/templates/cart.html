@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>天天生鲜-购物车</title>
+	<link rel="stylesheet" type="text/css" href="/static/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/main.css">
+</head>
+<body>
+	<div class="header_con">
+		<div class="header">
+			<div class="welcome fl">欢迎来到天天生鲜!</div>
+		</div>
+	</div>
+
+	<div class="search_bar clearfix">
+		<a href="../../index/" class="logo fl"><img src="/static/images/logo.png"></a>
+		<div class="sub_page_name fl">|&nbsp;&nbsp;&nbsp;&nbsp;购物车</div>
+	</div>
+
+	<div class="total_count">全部商品<em>{{ cart_goods_count }}</em>件</div>
+	<ul class="cart_list_th clearfix">
+		<li class="col01">商品名称</li>
+<!--		<li class="col02">商品单位</li>-->
+		<li class="col03">商品价格</li>
+		<li class="col04">数量</li>
+		<li class="col05">小计</li>
+		<li class="col06">操作</li>
+	</ul>
+
+    {% for cart_goods in cart_goods_list %}
+	<ul class="cart_list_td clearfix">
+		<li class="col01"></li>
+		<li class="col02"><img src="/static/goods/{{ cart_goods.goods_img }}.jpg"></li>
+		<li class="col03">{{ cart_goods.goods_name }}<br><em>{{ cart_goods.goods_price }}元</em></li>
+<!--		<li class="col04">{{ cart_goods.goods_unit }}</li>-->
+		<li class="col05">{{ cart_goods.goods_price }}元</li>
+		<li class="col06">{{ cart_goods.goods_num }}</li>
+		<li class="col07">{% widthratio cart_goods.goods_price 1 cart_goods.goods_num %}元</li>
+		<li class="col08"><a href="/cart/remove_cart/?id={{ cart_goods.id }}">删除</a></li>
+	</ul>
+    {% endfor %}
+
+	<ul class="settlements">
+		<li class="col01">.</li>
+		<li class="col02">.</li>
+		<li class="col03">合计(不含运费)：<span>¥</span><em>{{ cart_goods_money }}</em><br>共计<b>{{ cart_goods_count }}</b>件商品</li>
+		<li class="col04"><a href="/order/place_order/">去结算</a></li>
+	</ul>
+
+	<div class="footer">
+		<div class="foot_link">
+			<a href="#">关于我们</a>
+			<span>|</span>
+			<a href="#">联系我们</a>
+			<span>|</span>
+			<a href="#">招聘人才</a>
+			<span>|</span>
+			<a href="#">友情链接</a>
+		</div>
+		<p>CopyRight © 2016 北京天天生鲜信息技术有限公司 All Rights Reserved</p>
+		<p>电话：010-****888    京ICP备*******8号</p>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,98 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>天天生鲜-提交订单</title>
+	<link rel="stylesheet" type="text/css" href="/static/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/main.css">
+</head>
+<body>
+	<div class="search_bar clearfix">
+		<a href="/index/" class="logo fl"><img src="/static/images/logo.png"></a>
+		<div class="sub_page_name fl">|&nbsp;&nbsp;&nbsp;&nbsp;订单提交成功</div>
+	</div>
+
+
+	<h3 class="common_title">商品列表</h3>
+	<div class="common_list_con clearfix">
+		<ul class="goods_list_th clearfix">
+			<li class="col01">商品名称</li>
+			<li class="col03">商品价格</li>
+			<li class="col04">数量</li>
+			<li class="col05">小计</li>
+		</ul>
+
+		
+        <ul class="goods_list_td clearfix">
+			{% for goods in order_goods_list%}
+				<li class="col01">1</li>
+				<li class="col02"><img src="/static/goods/{{goods.goods_info.goods_img}}.jpg"></li>
+				<li class="col03">{{goods.goods_info.goods_name}}</li>
+				<li class="col05">{{goods.goods_info.goods_price}}元</li>
+				<li class="col06">{{goods.goods_num}}</li>
+				<li class="col07">{% widthratio goods.goods_num 1 goods.goods_info.goods_price%}元</li>
+			{% endfor %}
+		</ul>
+        
+
+	</div>
+
+	<h3 class="common_title">订单信息</h3>
+	<div class="common_list_con clearfix">
+		<dl>
+			<dd>
+				<table>
+                    <tr>
+						<td width="100">订单编号:</td><td>{{order_info.order_id}}</td>
+					</tr>
+					<tr>
+						<td>收货地址:</td><td>{{order_info.order_addr}}</td>
+					</tr>
+					<tr>
+						<td>收货人:</td><td>{{order_info.order_recv}}</td>
+					</tr>
+					<tr>
+						<td>联系电话:</td><td>{{order_info.order_tele}}</td>
+					</tr>
+					<tr>
+						<td>备注:</td><td>{{order_info.order_extra}}</td>
+					</tr>
+				</table>
+			</dd>
+		</dl>
+	</div>
+
+    <h3 class="common_title">总金额结算</h3>
+	<div class="common_list_con clearfix">
+		<div class="settle_con">
+			<div class="total_goods_count">共<em>{{total_num}}</em>件商品，总金额<b>{{totla_money}}元</b></div>
+			<div class="transit">运费：<b>10元</b></div>
+			<div class="total_pay">实付款：<b>{{totla_money|add:10}}元</b></div>
+		</div>
+	</div>
+
+
+	<div class="footer">
+		<div class="foot_link">
+			<a href="#">关于我们</a>
+			<span>|</span>
+			<a href="#">联系我们</a>
+			<span>|</span>
+			<a href="#">招聘人才</a>
+			<span>|</span>
+			<a href="#">友情链接</a>
+		</div>
+		<p>CopyRight © 2016 北京天天生鲜信息技术有限公司 All Rights Reserved</p>
+		<p>电话：010-****888    京ICP备*******8号</p>
+	</div>
+
+	<div class="popup_con">
+		<div class="popup">
+			<p>订单提交成功！</p>
+		</div>
+
+		<div class="mask"></div>
+	</div>
+</body>
+</html>

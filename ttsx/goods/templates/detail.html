@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>{{ goods_data.goods_name }}</title>
+	<link rel="stylesheet" type="text/css" href="/static/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/main.css">
+</head>
+<body>
+	<div class="search_bar clearfix">
+		<a href="/index/" class="logo fl"><img src="/static/images/logo.png"></a>
+		<div class="guest_cart fr">
+			<a href="/cart/show_cart/" class="cart_name fl">我的购物车</a>
+            <div class="goods_count fl">{{ cart_goods_count }}</div>
+			<ul class="cart_goods_show">
+				{%for cart_goods in cart_goods_list%}
+				<li>
+					<img src="/static/goods/{{ cart_goods.goods_img }}.jpg" alt="商品图片">
+					<h4>{{ cart_goods.goods_name }}</h4>
+					<div>{{ cart_goods.goods_num }}</div>
+				</li>
+				{%endfor%}
+			</ul>
+		</div>
+	</div>
+    <div class="navbar_con">
+		<div class="navbar clearfix">
+			<div class="subnav_con fl">
+				<h1>全部商品分类</h1>
+				<span></span>
+				<ul class="subnav">
+                    {% for cag in categories %}
+                        <li><a href="/goods/?cag={{ cag.id }}&page=1" class="{{ cag.cag_css }}">{{ cag.cag_name }}</a></li>
+                    {% endfor %}
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="breadcrumb">
+		<a href="#">全部分类</a>
+		<span>></span>
+		<a href="#">{{ goods_data.goods_cag.cag_name }}</a>
+		<span>></span>
+		<a href="#">商品详情</a>
+	</div>
+
+	<div class="goods_detail_con clearfix">
+		<div class="goods_detail_pic fl"><img src="/static/goods/{{ goods_data.goods_img }}.jpg"></div>
+
+		<div class="goods_detail_list fr">
+			<h3>{{ goods_data.goods_name }}</h3>
+			<br>
+			<div class="prize_bar">
+				<span class="show_pirze">¥<em>{{ goods_data.goods_price }}</em></span>
+				<span class="show_unit">单  位：{{ goods_data.goods_unit }}</span>
+			</div>
+			<div class="goods_num clearfix">
+				<div class="num_name fl">数 量：</div>
+				<div class="num_add fl">
+					<input type="text" class="num_show fl" value="1" disabled>
+				</div>
+			</div>
+			<div class="operate_btn">
+				<a href="/cart/add_cart/?id={{ goods_data.id }}" class="add_cart" id="add_cart">加入购物车</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="main_wrap clearfix">
+			<ul class="detail_tab clearfix">
+				<li class="active">商品介绍</li>
+			</ul>
+
+			<div class="tab_content">
+				<dl>
+					<dd>{{ goods_data.goods_desc }}</dd>
+				</dl>
+			</div>
+	</div>
+</body>
+</html>
