@@ -1,0 +1,152 @@
+
+
+/* 
+    Created on  : Dec 1, 2016, 12:56:41 AM
+    Author      : Prakasam Mathaiyan
+    URL         : http://www.prakasam.co
+    E-Mail      : hello@prakasam.co
+*/
+
+
+
+.form-control {
+    color: #363A5C;
+    border: 1px solid #DDDDDD;
+    border-radius: 2px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.form-control:focus {
+    border-color: #5F69E0;
+    outline: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.input-group-addon {
+    border-radius: 2px;
+}
+
+
+
+
+.has-success .help-block, 
+.has-success .control-label, 
+.has-success .radio, 
+.has-success .checkbox, 
+.has-success .radio-inline, 
+.has-success .checkbox-inline, 
+.has-success.radio label, 
+.has-success.checkbox label, 
+.has-success.radio-inline label, 
+.has-success.checkbox-inline label {
+    color: #7EC857;
+}
+
+.has-success .form-control {
+    border-color: #7EC857;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.has-success .form-control:focus {
+    border-color: #75B74F;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.has-success .input-group-addon {
+    color: #7EC857;
+    border-color: #7EC857;
+}
+
+.has-success .form-control-feedback {
+    color: #7EC857;
+}
+
+
+.has-warning .help-block, 
+.has-warning .control-label, 
+.has-warning .radio, 
+.has-warning .checkbox, 
+.has-warning .radio-inline, 
+.has-warning .checkbox-inline, 
+.has-warning.radio label, 
+.has-warning.checkbox label, 
+.has-warning.radio-inline label, 
+.has-warning.checkbox-inline label {
+    color: #FFC017;
+}
+
+.has-warning .form-control {
+    border-color: #FFC017;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.has-warning .form-control:focus {
+    border-color: #FBB600;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.has-warning .input-group-addon {
+    color: #FFC017;
+    border-color: #FFC017;
+}
+
+.has-warning .form-control-feedback {
+    color: #FFC017;
+}
+
+
+
+
+.has-error .help-block, 
+.has-error .control-label, 
+.has-error .radio, 
+.has-error .checkbox, 
+.has-error .radio-inline, 
+.has-error .checkbox-inline, 
+.has-error.radio label, 
+.has-error.checkbox label, 
+.has-error.radio-inline label, 
+.has-error.checkbox-inline label {
+    color: #FF4859;
+}
+
+.has-error .form-control {
+    border-color: #FF4859;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.has-error .form-control:focus {
+    border-color: #F83D4F;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.has-error .input-group-addon {
+    color: #FF4859;
+    border-color: #FF4859;
+}
+
+.has-error .form-control-feedback {
+    color: #FF4859;
+}
+
+
+
+.has-feedback label ~ .form-control-feedback {
+    top: 25px;
+    line-height: 2.4;
+}
+
+
+.checkbox-primary input[type="checkbox"]:checked + label::before, 
+.checkbox-primary input[type="radio"]:checked + label::before {
+    background-color: #5F69E0;
+    border-color: #5F69E0;
+}

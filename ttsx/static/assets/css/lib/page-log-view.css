@@ -1,0 +1,50 @@
+
+
+/* 
+    Created on  : Nov 30, 2016, 3:13:58 PM
+    Author      : Prakasam Mathaiyan
+    URL         : http://www.prakasam.co
+    E-Mail      : hello@prakasam.co
+*/
+
+
+
+
+.list-log-view{
+    margin-left: 0;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+.list-log-view>li{
+    padding-left: 20px;
+    list-style: none;
+}
+
+.list-log-view>li>a{
+    display: block;
+    clear: both;
+    padding: 4px 10px;
+    font-family: 'Letter Gothic Std';
+    font-weight: bold;
+}
+
+.list-log-view>li>a:hover,
+.list-log-view>li>a:focus{
+    text-decoration: none;
+}
+
+.list-log-view>li>a>.user,
+.list-log-view>li>a>.time{
+    margin-right: 20px;
+    float: left;
+}
+
+.list-log-view>li>a>.user{
+    width: 150px;
+    float: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+

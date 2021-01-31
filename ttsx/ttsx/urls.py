@@ -28,6 +28,7 @@ urlpatterns = [
     path('goods/', goods),
     path('cart/', include('cart.urls')),
     path('order/', include('order.urls')),
+    path('user/', include('user.urls')),
     # path('cart/', add_cart),
     # path('cart/show_cart/', show_cart),
     # path('cart/remove_cart/', remove_cart),

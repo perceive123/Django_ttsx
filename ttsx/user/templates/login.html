@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <base href="<%=basePath%>">
+
+    <title>天天生鲜后台管理系统</title>
+
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">
+	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+	<meta http-equiv="description" content="This is my page">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<!--
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	-->
+	<link rel="icon" type="image/x-icon" href="#" />
+    <link type="text/css" rel="styleSheet"  href="css/main.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="/static/css/logincss.css">
+	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script>
+        function myFunction(){
+            var x=document.forms["login"]["user_name"].value;
+             if(x=null||x=="")
+             {
+                alert("请输入用户名");
+                return false;
+            }
+
+             var y=document.forms["login"]["user_pwd"].value;
+             if(!(/^\d{6,}$/).test(y))
+             {
+                alert("密码最少6位！");
+                return false;
+            }
+        }
+		function signin() {
+		 self.location.href="/user/register/"
+		}
+
+		function Submit(){
+			login.submit();
+		}
+	</script>
+  </head>
+
+<body>
+    <div id="bg">
+
+        <div id="login_wrap">
+            <div id="login">
+                <div id="status">
+                   <i>登	录</i>
+                </div>
+                <span>
+                    <form  action="/user/loginDeal/" method="post" onsubmit="return myFunction()"  name="login">
+                        {% csrf_token %}<p class="form"><input type="text" class="form-control" id="user_name"  name="user_name" value="{{ user_name }}" placeholder="用户名" AUTOCOMPLETE="OFF"></p>
+                        <p class="form"><input type="password" class="form-control" id="user_pwd"  name="user_pwd" value="{{ user_pwd }}" placeholder="密码" AUTOCOMPLETE="OFF"></p>
+                        <input type="submit" value="登录" class="button"  style="margin-right: 20px;">
+                        <input type="button" value="注册" class="button" onclick="signin()">
+                    </form>
+                </span>
+            </div>
+
+            <div id="login_img"><!-- 图片绘制框 -->
+                <span class="circle">
+                    <span></span>
+                    <span></span>
+                </span>
+                <span class="star">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+                <span class="fly_star">
+                    <span></span>
+                    <span></span>
+                </span>
+                <p id="title" style="letter-spacing:40px">&nbsp;天天生鲜</p>
+            </div>
+        </div>
+    </div>
+             <script>
+                {% if msg %}
+                    alert("{{ msg }}")
+                {% endif %}
+            </script>
+</body>
+
+</html>

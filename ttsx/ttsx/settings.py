@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'goods',
     'cart',
     'order',
+    'user',
 ]
 
 MIDDLEWARE = [
@@ -84,7 +85,9 @@ DATABASES = {
         'USER': 'user1',
         'PASSWORD': 'Cacs@0201',
         'HOST': '192.168.0.253',
-        'PORT': '3306'  # 端口
+        'PORT': '3306',  # 端口
+        # 取消外键检查
+        # 'OPTIONS': {'init_command': 'SET foreign_key_checks = 0;'},
     }
 }
 
@@ -127,3 +130,24 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
+
+# 设置logging print输出的结果可在控制台中查看
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'django.db.backends': {
+            'handlers': ['console'],
+            'propagate': True,
+            'level': 'DEBUG',
+        },
+    }
+}
+AUTH_USER_MODEL = 'user.UserInfo'

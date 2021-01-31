@@ -10,20 +10,17 @@
 	<script type="text/javascript" src="/static/js/slide.js"></script>
 </head>
 <body>
-	<div class="header_con">
-		<div class="header">
-			<div class="welcome fl">欢迎来到天天生鲜!</div>
-		</div>
-	</div>
-
+<!--	<div class="header_con">-->
+<!--		<div class="header">-->
+<!--			<div class="welcome fl">欢迎来到天天生鲜!</div>-->
+<!--		</div>-->
+<!--	</div>-->
 	<div class="search_bar clearfix">
 		<a href="/index/" class="logo fl"><img src="/static/images/logo.png"></a>
 		<div class="guest_cart fr">
 			<a href="/cart/show_cart/" class="cart_name fl">我的购物车</a>
 			<div class="goods_count fl">{{ cart_goods_count }}</div>
 			<ul class="cart_goods_show">
-
-
                 {% for cart_goods in cart_goods_list %}
 				<li>
 					<img src="/static/goods/{{ cart_goods.goods_img }}.jpg" alt="商品图片">
@@ -31,10 +28,9 @@
 					<div>{{ cart_goods.goods_num }}</div>
 				</li>
                 {% endfor %}
-
 			</ul>
-
 		</div>
+	<div align="right"><br/><br/><a href="/user/login/" style="color:#FF5000" >亲，请登录</a>&nbsp;&nbsp;<a href="/user/register/" style="color:#6C6C6C" >免费注册</a></div>
 	</div>
 
 	<div class="navbar_con">

@@ -1,0 +1,201 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>天天生鲜后台管理系统</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="author" content="Prakasam Mathaiyan">
+    <meta name="description" content="">
+
+    <!--[if IE]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="/static/assets/plugins/lib/modernizr.js"></script>
+    <link rel="icon" href="/static/assets/images/favicon.png" type="image/gif">
+
+    <link rel="stylesheet" type="text/css" href="/static/assets/plugins/bootstrap/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/static/assets/plugins/datatable/dataTables.bootstrap.min.css">
+
+    <link rel="stylesheet" type="text/css" href="/static/assets/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/static/assets/css/style-default.css">
+</head>
+
+<body>
+
+<div class="wrapper has-footer">
+
+    <header class="header-top navbar fixed-top">
+
+
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle side-nav-toggle">
+                <i class="ti-align-left"></i>
+            </button>
+
+            <a class="navbar-brand" href="#">
+                <span href="index.php">天天生鲜后台管理系统</span>
+            </a>
+
+            <ul class="nav navbar-nav-xs">  <!-- START: Responsive Top Right tool bar -->
+                <li>
+                    <a href="javascript:;" class="collapse" data-toggle="collapse" data-target="#headerNavbarCollapse">
+                        <i class="sli-user"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;" class="search-toggle">
+                        <i class="sli-magnifier"></i>
+                    </a>
+                </li>
+
+            </ul>   <!-- END: Responsive Top Right tool bar -->
+
+        </div>
+
+        <div class="collapse navbar-collapse" id="headerNavbarCollapse">
+
+            <ul class="nav navbar-nav">
+
+                <li class="hidden-xs">
+                    <a href="javascript:;" class="sidenav-size-toggle">
+                        <i class="ti-align-left"></i>
+                    </a>
+                </li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+            </ul>
+
+        </div><!-- END: Navba
+        r-collapse -->
+
+    </header>   <!-- END: Header -->
+
+    <aside class="side-navigation-wrap sidebar-fixed">  <!-- START: Side Navigation -->
+        <div class="sidenav-inner">
+            <ul class="side-nav magic-nav">
+                <li class="side-nav-header">菜单栏</li>
+                <li>
+                    <a href="/user/userindex"><i class="sli-dashboard"></i> <span class="nav-text">首页</span></a>
+                </li>
+                <li>
+                    <a href="/user/user"><i class="fs-grid-6"></i> <span class="nav-text">用户管理</span></a>
+                </li>
+
+                <li>
+
+                    <a href="/user/Logout/" >
+                        <i class="sli-rocket"></i>
+                        <span class="nav-text">退出登录</span>
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </div><!-- END: sidebar-inner -->
+
+    </aside>    <!-- END: Side Navigation -->
+
+    <div class="main-container">    <!-- START: Main Container -->
+
+        <div class="page-header">
+            <h1>用户管理</h1>
+        </div>
+
+        <div class="content-wrap">  <!--START: Content Wrap-->
+
+            <div class="row">
+
+                <div class="col-md-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">用户管理&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-info-outline"><a href="/user/add/">新增</a></button></h3>
+                            <div class="tools">
+                                <a class="btn-link collapses panel-collapse" href="javascript:;"></a>
+                                <a class="btn-link reload" href="javascript:;"><i class="ti-reload"></i></a>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <table class="table table-bordered table-dataTable">
+                                <thead>
+                                <tr>
+                                    <th>用户ID</th>
+                                    <th>用户名</th>
+                                    <th>邮箱</th>
+                                    <th>手机号</th>
+                                    <th>性别</th>
+                                    <th>最后登录时间</th>
+                                    <th>操作</th>
+                                </tr>
+                                </thead>
+                                <tfoot>
+                                <tr>
+                                    <th>用户ID</th>
+                                    <th>用户名</th>
+                                    <th>邮箱</th>
+                                    <th>手机号</th>
+                                    <th>性别</th>
+                                    <th>最后登录时间</th>
+                                    <th>操作</th>
+                                </tr>
+                                </tfoot>
+                                <tbody>
+                                    {% for i in data %}
+                                        <tr>
+                                        <td>{{ i.id }}</td>
+                                        <td>{{ i.username }}</td>
+                                        <td>{{ i.email }}</td>
+                                        <td>{{ i.tel }}</td>
+                                        <td>{% if i.sex%}
+                                            男
+                                            {% else %}
+                                            女
+                                        {% endif %} </td>
+                                        <td>{{ i.last_login }}</td>
+                                        <td><button type="button" class="btn btn-primary-outline"><a href="/user/edit/?id={{ i.id }}">修改</a></button>&nbsp;&nbsp;&nbsp;&nbsp;
+                                            <button type="button" class="btn btn-danger-outline"><a href="/user/delete/?id={{ i.id }}">删除</a></button></td>
+
+                                    </tr>
+                                    {% endfor %}
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>  <!--END: Content Wrap-->
+
+    </div>  <!-- END: Main Container -->
+
+
+
+</div>  <!-- END: wrapper -->
+<script type="text/javascript" src="/static/assets/plugins/lib/jquery-2.2.4.min.js"></script>
+<script type="text/javascript" src="/static/assets/plugins/lib/jquery-ui.min.js"></script>
+<script type="text/javascript" src="/static/assets/plugins/bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript" src="/static/assets/plugins/lib/plugins.js"></script>
+
+<script type="text/javascript" src="/static/assets/plugins/datatable/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="/static/assets/plugins/datatable/dataTables.bootstrap.min.js"></script>
+
+<script type="text/javascript" src="/static/assets/js/app.base.js"></script>
+<script type="text/javascript" src="/static/assets/js/page-table.js"></script>
+<script>
+                {% if msg %}
+                    alert("{{ msg }}")
+                {% endif %}
+            </script>
+<script>
+    jQuery(document).ready(function () {
+        DataTableBasic.init();
+    });
+</script>
+</body>
+</html>
+
