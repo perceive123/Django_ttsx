@@ -22,4 +22,4 @@
 6. 订单成功显示页面
 7. 用户注册与登陆页面
 
-项目实际网站：http://xiaorenye.pythonanywhere.com/，欢迎各位大佬"轻喷"
+项目实际网站：http://xiaorenye.pythonanywhere.com, 欢迎各位大佬"轻喷"
