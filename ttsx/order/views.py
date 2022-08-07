@@ -47,7 +47,7 @@ def submit_order(request):
     orderinfo.order_tele=tele
     orderinfo.order_extra=extra
     # 生成订单编号
-    orderinfo.order_id=str(int(time.time())*1000)+str(int(time.clock())*1000000)
+    orderinfo.order_id=str(int(time.time())*1000)+str(int(time.perf_counter())*1000000)
     orderinfo.save()
     # 跳转页面
     response=redirect(f'/order/submit_success/?id={orderinfo.order_id}')
