@@ -17,7 +17,6 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import include
 from goods.views import index, detail, goods
-# from cart.views import add_cart, show_cart, remove_cart, place_order, remove_cart, submit_order, submit_success
 
 urlpatterns = [
     path('admin/', admin.site.urls),
