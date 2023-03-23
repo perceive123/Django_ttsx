@@ -81,9 +81,9 @@ WSGI_APPLICATION = 'ttsx.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',  # mysql数据库引擎
-        'NAME': 'my_ttsx_syc',  # 数据库名字
+        'NAME': 'my_ttsx',  # 数据库名字
         'USER': 'user1',
-        'PASSWORD': 'Cacs@0201',
+        'PASSWORD': 'xxx',
         'HOST': '192.168.0.253',
         'PORT': '3306',  # 端口
         # 取消外键检查
